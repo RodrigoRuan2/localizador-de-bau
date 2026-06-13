@@ -2,6 +2,7 @@
 
 .chest-card {
   position: relative; /* âncora para a camada de brilho (::after) */
+  height: 100%; /* preenche a altura da célula da grade -> cards do mesmo tamanho */
   background: var(--cor-superficie);
   border: 1px solid var(--cor-borda);
   border-radius: 12px;
@@ -9,7 +10,31 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s, opacity 0.2s;
+}
+
+/* Card sendo arrastado: fica translúcido para dar feedback visual */
+.chest-card--dragging {
+  opacity: 0.4;
+}
+
+/* Alça de arrasto (o "⠿" no canto). cursor grab/grabbing comunica
+   que dá para puxar. user-select: none evita selecionar o texto ao puxar. */
+.chest-card__grip {
+  cursor: grab;
+  color: var(--cor-texto-suave);
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0 6px;
+  user-select: none;
+}
+
+.chest-card__grip:active {
+  cursor: grabbing;
+}
+
+.chest-card__grip:hover {
+  color: var(--cor-destaque);
 }
 
 /* Quando o cooldown zera, o card "acende" com um pulso neon.
@@ -42,12 +67,13 @@
 
 .chest-card__header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 6px;
 }
 
 .chest-card__title {
   margin: 0;
+  flex: 1; /* ocupa o meio, empurrando o ✕ para a direita */
   font-size: 1.15rem;
   color: var(--cor-destaque);
 }
@@ -112,6 +138,22 @@
   margin: 0;
   font-size: 0.875rem;
   color: var(--cor-texto-suave);
+}
+
+/* A linha da média sempre existe (com ou sem dados) e tem o botão "usar",
+   que é mais alto. Fixamos a altura/alinhamento para que TODOS os cards
+   tenham a mesma estrutura -> mesma altura, ficando idênticos. */
+.chest-card__avg {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  min-height: 34px;
+}
+
+.chest-card__avg--empty {
+  color: var(--cor-texto-suave);
+  opacity: 0.7;
 }
 
 .chest-card__avg strong {

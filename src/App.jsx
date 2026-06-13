@@ -40,11 +40,14 @@ function App() {
   // versões antigas do app ganham os campos novos sem quebrar nada.
   const [timers, setTimers] = useState(() =>
     loadFromStorage(STORAGE_TIMERS, []).map((t) => ({
-      enteredAt: Date.now(),
+      lastDropAt: null,
       customMs: null,
       ...t,
     }))
   )
+
+  // ID do card sendo arrastado no momento (null = ninguém arrastando)
+  const [dragId, setDragId] = useState(null)
   const [settings, setSettings] = useState(() =>
     loadFromStorage(STORAGE_SETTINGS, DEFAULT_SETTINGS)
   )
@@ -89,7 +92,7 @@ function App() {
       stageId: forcedStageId ?? stageId(stagesForLevel(chestLevel)[0]),
       endsAt: null, // null = sem countdown rodando (baú disponível)
       durationMs: 0,
-      enteredAt: Date.now(), // início da contagem de "tempo na fase"
+      lastDropAt: null, // horário do último "Baú dropou!" (null = nenhum ainda)
       customMs: null, // cooldown personalizado deste card (null = usa o padrão)
     }
   }
@@ -125,7 +128,7 @@ function App() {
     const durationMs = timer.customMs ?? settings.durationMin * 60 * 1000
     setTimers((prev) =>
       prev.map((t) =>
-        t.id === id ? { ...t, endsAt: agora + durationMs, durationMs, enteredAt: agora } : t
+        t.id === id ? { ...t, endsAt: agora + durationMs, durationMs, lastDropAt: agora } : t
       )
     )
     // Registra o drop no histórico do nível (máximo de 50 por nível,
@@ -151,10 +154,23 @@ function App() {
   }
 
   function handleChangeStage(id, newStageId) {
-    // Trocar de fase reinicia o "tempo na fase" — você acabou de chegar nela
-    setTimers((prev) =>
-      prev.map((t) => (t.id === id ? { ...t, stageId: newStageId, enteredAt: Date.now() } : t))
-    )
+    setTimers((prev) => prev.map((t) => (t.id === id ? { ...t, stageId: newStageId } : t)))
+  }
+
+  // Reordena a lista quando um card é solto sobre outro. dragId é o card
+  // que estava sendo arrastado; targetId é onde foi solto.
+  function handleDropCard(targetId) {
+    setTimers((prev) => {
+      if (dragId == null || dragId === targetId) return prev
+      const from = prev.findIndex((t) => t.id === dragId)
+      const to = prev.findIndex((t) => t.id === targetId)
+      if (from === -1 || to === -1) return prev
+      const copia = [...prev]
+      const [movido] = copia.splice(from, 1) // remove da posição antiga
+      copia.splice(to, 0, movido) // insere na nova
+      return copia
+    })
+    setDragId(null)
   }
 
   function handleSetCustom(id, ms) {
@@ -204,6 +220,7 @@ function App() {
               key={timer.id}
               timer={timer}
               isNext={timer.id === nextId}
+              isDragging={timer.id === dragId}
               average={averageDropInterval(dropHistory[timer.chestLevel])}
               onSetCustom={handleSetCustom}
               now={now}
@@ -213,6 +230,9 @@ function App() {
               onReset={handleReset}
               onRemove={handleRemove}
               onChangeStage={handleChangeStage}
+              onDragStart={setDragId}
+              onDragEnd={() => setDragId(null)}
+              onDropCard={handleDropCard}
             />
           ))}
         </main>
