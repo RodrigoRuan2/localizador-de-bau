@@ -1,0 +1,109 @@
+/* Estilos globais: reset básico, tema escuro e variáveis de cor.
+   As variáveis (--cor-*) ficam no :root para todos os outros
+   arquivos CSS poderem reaproveitá-las. */
+
+:root {
+  /* Paleta cyberpunk: roxo neon como cor principal, ciano como
+     contraste secundário e verde-ciano para o estado "pronto". */
+  --cor-fundo: #0a0714;
+  --cor-superficie: #140e24;
+  --cor-superficie-alta: #1f1538;
+  --cor-borda: #3a2766;
+  --cor-texto: #ece6fa;
+  --cor-texto-suave: #9d8cc2;
+  --cor-destaque: #a855f7; /* roxo neon principal */
+  /* Magenta escurecido de propósito: texto branco sobre ele atinge
+     contraste ~6.3:1 (WCAG AA pede 4.5). O tom vivo anterior (#e145ff)
+     dava só ~3.2:1 na ponta do gradiente do botão principal. */
+  --cor-destaque-2: #a21caf;
+  --cor-ciano: #00e5ff; /* neon secundário */
+  --cor-pronto: #00ffc8; /* verde-ciano "baú disponível" */
+  --cor-perigo: #ff2d6f;
+
+  /* Brilhos neon reutilizáveis (box-shadow) */
+  --brilho-roxo: 0 0 14px rgba(168, 85, 247, 0.35);
+  --brilho-pronto: 0 0 14px rgba(0, 255, 200, 0.35);
+
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  /* Camadas de fundo: dois "fachos" de luz neon (roxo no alto,
+     ciano embaixo) por cima da cor base bem escura. */
+  background:
+    radial-gradient(1100px 600px at 85% -10%, rgba(168, 85, 247, 0.14), transparent 60%),
+    radial-gradient(900px 500px at -5% 110%, rgba(0, 229, 255, 0.08), transparent 60%),
+    var(--cor-fundo);
+  background-attachment: fixed;
+  color: var(--cor-texto);
+  font-family: 'Rajdhani', 'Segoe UI', system-ui, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Scanlines: linhas horizontais finíssimas por cima de tudo,
+   lembrando um monitor CRT antigo. pointer-events: none garante
+   que a camada não bloqueia nenhum clique. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.02) 0 1px,
+    transparent 1px 3px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Acessibilidade com estilo: contorno ciano em quem recebe foco via teclado */
+:focus-visible {
+  outline: 2px solid var(--cor-ciano);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--cor-destaque);
+  color: #fff;
+}
+
+/* Respeito à preferência de movimento reduzido do sistema operacional
+   (WCAG 2.3.3): desliga animações, transições e o overlay de scanlines
+   para quem tem sensibilidade a movimento. O tema continua roxo neon —
+   só para de piscar e pulsar. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  body::before {
+    display: none; /* scanlines fora */
+  }
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+}
+
+select,
+input {
+  font: inherit;
+}
+
+a {
+  color: var(--cor-destaque);
+}

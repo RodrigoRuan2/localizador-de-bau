@@ -1,0 +1,53 @@
+/* Layout geral da página: cabeçalho, grade de cards e rodapé. */
+
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.app__header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.app__title {
+  margin: 0;
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  /* clamp(mínimo, ideal, máximo): a fonte cresce com a largura da tela
+     (4.5vw) mas nunca fica menor que 1.2rem nem maior que 1.9rem.
+     Evita o título estourar em telas estreitas sem media queries. */
+  font-size: clamp(1.2rem, 4.5vw, 1.9rem);
+  letter-spacing: clamp(1px, 0.5vw, 3px);
+  text-transform: uppercase;
+  color: var(--cor-destaque);
+  text-shadow: 0 0 18px rgba(168, 85, 247, 0.6);
+}
+
+.app__subtitle {
+  margin: 8px auto 0;
+  max-width: 640px;
+  color: var(--cor-texto-suave);
+}
+
+/* Grade responsiva: o navegador encaixa quantos cards de 280px
+   couberem por linha — sem precisar de media queries. */
+.app__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.app__empty {
+  text-align: center;
+  color: var(--cor-texto-suave);
+  margin-top: 40px;
+}
+
+.app__footer {
+  margin-top: 48px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}

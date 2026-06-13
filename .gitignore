@@ -1,0 +1,13 @@
+# Dependências instaladas pelo npm (sempre recriáveis com `npm install`)
+node_modules/
+
+# Resultado do build de produção
+dist/
+
+# Arquivos de configuração pessoal — nunca devem ir para o GitHub
+CLAUDE.md
+.claude/
+
+# Logs e arquivos temporários
+*.log
+.DS_Store

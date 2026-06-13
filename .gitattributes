@@ -1,0 +1,4 @@
+# Normaliza as quebras de linha: o Git guarda sempre em LF no repositório
+# e converte conforme o sistema operacional ao baixar. Evita aquele diff
+# gigante de "arquivo inteiro mudou" quando se troca de máquina ou SO.
+* text=auto eol=lf

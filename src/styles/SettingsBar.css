@@ -1,0 +1,57 @@
+/* Barra de configurações globais no topo. */
+
+.settings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+  justify-content: center;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+.settings__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+.settings__field--checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 6px;
+}
+
+.settings__input {
+  background: var(--cor-superficie-alta);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 6px 10px;
+  width: 130px;
+}
+
+.settings__input[type='range'] {
+  padding: 0;
+  accent-color: var(--cor-destaque);
+}
+
+/* accent-color pinta controles nativos (checkbox, range) com a cor do tema */
+.settings__field--checkbox input {
+  accent-color: var(--cor-destaque);
+}
+
+.settings__button {
+  background: var(--cor-superficie-alta);
+  color: var(--cor-texto);
+  padding: 8px 14px;
+}
+
+.settings__button--danger {
+  color: var(--cor-perigo);
+}

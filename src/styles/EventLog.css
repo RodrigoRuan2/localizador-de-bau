@@ -1,0 +1,30 @@
+/* Histórico de eventos (drops e resets). */
+
+.event-log {
+  margin-top: 32px;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.event-log__title {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  color: var(--cor-texto-suave);
+}
+
+.event-log__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.event-log__time {
+  color: var(--cor-destaque);
+  font-variant-numeric: tabular-nums;
+}

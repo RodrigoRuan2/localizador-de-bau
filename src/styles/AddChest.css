@@ -1,0 +1,48 @@
+/* Formulário de adicionar baú à rotação. */
+
+.add-chest {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.add-chest__label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+.add-chest__select {
+  background: var(--cor-superficie-alta);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 8px 12px;
+  min-width: 120px;
+}
+
+/* Botão "vazado" neon: fundo transparente, borda e texto roxos.
+   (o reset global tira a borda dos botões, então declaramos de novo) */
+.add-chest__button {
+  background: rgba(168, 85, 247, 0.08);
+  border: 1px solid var(--cor-destaque);
+  color: var(--cor-destaque);
+  font-weight: 700;
+  padding: 9px 16px;
+  box-shadow: var(--brilho-roxo);
+}
+
+.add-chest__button:hover {
+  background: rgba(168, 85, 247, 0.2);
+}
+
+.add-chest__done {
+  text-align: center;
+  color: var(--cor-texto-suave);
+  margin-top: 16px;
+}

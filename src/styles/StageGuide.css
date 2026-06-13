@@ -1,0 +1,119 @@
+/* Guia de fases: seção recolhível com filtros e tabela das 120 fases. */
+
+.stage-guide {
+  margin-top: 32px;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  padding: 0 16px 16px;
+}
+
+.stage-guide__summary {
+  cursor: pointer;
+  padding: 14px 0;
+  font-weight: 700;
+  color: var(--cor-destaque);
+  list-style-position: inside;
+}
+
+.stage-guide__summary:hover {
+  filter: brightness(1.2);
+}
+
+.stage-guide__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.stage-guide__field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+.stage-guide__field--busca {
+  flex: 1;
+  min-width: 180px;
+}
+
+.stage-guide__select,
+.stage-guide__input {
+  background: var(--cor-superficie-alta);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.stage-guide__count {
+  margin: 4px 0 8px;
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+}
+
+/* Área com rolagem própria: a tabela é grande, então limitamos a
+   altura para o guia não empurrar o resto da página para baixo. */
+.stage-guide__scroll {
+  max-height: 420px;
+  overflow-y: auto;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+}
+
+.stage-guide__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.stage-guide__table th {
+  /* Cabeçalho "grudado": continua visível enquanto a tabela rola */
+  position: sticky;
+  top: 0;
+  background: var(--cor-superficie-alta);
+  color: var(--cor-texto-suave);
+  text-align: left;
+  padding: 8px 10px;
+  font-weight: 600;
+}
+
+.stage-guide__table td {
+  padding: 7px 10px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+.stage-guide__table tbody tr:hover {
+  background: var(--cor-superficie-alta);
+}
+
+/* Fases de chefe de ato ganham um leve destaque roxo */
+.stage-guide__row--boss td {
+  background: rgba(168, 85, 247, 0.08);
+}
+
+.stage-guide__drop {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.stage-guide__drop--alta {
+  color: var(--cor-pronto);
+}
+
+.stage-guide__drop--media {
+  color: var(--cor-destaque);
+}
+
+.stage-guide__drop--baixa {
+  color: var(--cor-perigo);
+}
+
+.stage-guide__empty {
+  text-align: center;
+  color: var(--cor-texto-suave);
+  padding: 16px;
+}

@@ -1,0 +1,214 @@
+/* Card individual de baú: estado normal (contando) e estado "pronto". */
+
+.chest-card {
+  position: relative; /* âncora para a camada de brilho (::after) */
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Quando o cooldown zera, o card "acende" com um pulso neon.
+   O truque de performance: o brilho fica numa camada própria (::after)
+   e animamos só a OPACIDADE dela — opacidade é animada pela GPU,
+   sem repintar a página inteira (animar box-shadow direto repinta). */
+.chest-card--ready {
+  border-color: var(--cor-pronto);
+}
+
+.chest-card--ready::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 12px;
+  box-shadow: 0 0 22px rgba(0, 255, 200, 0.45);
+  pointer-events: none;
+  animation: pulso-neon 2.2s ease-in-out infinite;
+}
+
+@keyframes pulso-neon {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.chest-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chest-card__title {
+  margin: 0;
+  font-size: 1.15rem;
+  color: var(--cor-destaque);
+}
+
+.chest-card__remove {
+  background: transparent;
+  color: var(--cor-texto-suave);
+  font-size: 1rem;
+  /* Alvo de toque confortável (mínimo recomendado ~32-44px) */
+  min-width: 36px;
+  min-height: 36px;
+  padding: 4px 8px;
+}
+
+.chest-card__remove:hover {
+  color: var(--cor-perigo);
+}
+
+.chest-card__label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+.chest-card__select {
+  background: var(--cor-superficie-alta);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  padding: 8px;
+  width: 100%;
+}
+
+.chest-card__stage-info {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--cor-texto-suave);
+}
+
+/* Card que é o próximo a ficar pronto na rotação: brilho roxo */
+.chest-card--next {
+  border-color: var(--cor-destaque);
+  box-shadow: var(--brilho-roxo);
+}
+
+.chest-card__next-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--cor-destaque);
+  border: 1px solid var(--cor-destaque);
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-left: 8px;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.chest-card__elapsed,
+.chest-card__avg {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--cor-texto-suave);
+}
+
+.chest-card__avg strong {
+  color: var(--cor-texto);
+}
+
+.chest-card__avg-btn {
+  background: var(--cor-superficie-alta);
+  color: var(--cor-destaque);
+  font-size: 0.8rem;
+  /* Altura mínima de 32px: a anterior (22px) ficava abaixo até do
+     mínimo de alvo de toque do WCAG 2.2 AA (24px) */
+  min-height: 32px;
+  padding: 4px 12px;
+  margin-left: 6px;
+  border-radius: 6px;
+}
+
+.chest-card__avg-btn:hover {
+  filter: brightness(1.2);
+}
+
+.chest-card__time {
+  margin: 4px 0;
+  text-align: center;
+  font-family: 'Orbitron', monospace;
+  font-size: 2rem; /* Orbitron é larga; 2rem dela ocupa o mesmo que 2.4 da antiga */
+  font-weight: 700;
+  font-variant-numeric: tabular-nums; /* dígitos de largura fixa: o relógio não "treme" */
+  text-shadow: 0 0 16px rgba(168, 85, 247, 0.45);
+}
+
+.chest-card--ready .chest-card__time {
+  color: var(--cor-pronto);
+  text-shadow: 0 0 16px rgba(0, 255, 200, 0.55);
+}
+
+/* Estilizando a <progress> nativa (precisa dos seletores com prefixo) */
+.chest-card__progress {
+  width: 100%;
+  height: 8px;
+  appearance: none;
+  -webkit-appearance: none;
+  border: none;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--cor-superficie-alta);
+}
+
+.chest-card__progress::-webkit-progress-bar {
+  background: var(--cor-superficie-alta);
+}
+
+.chest-card__progress::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--cor-destaque), var(--cor-ciano));
+  transition: width 0.4s linear;
+}
+
+.chest-card--ready .chest-card__progress::-webkit-progress-value {
+  background: var(--cor-pronto);
+}
+
+.chest-card__progress::-moz-progress-bar {
+  background: linear-gradient(90deg, var(--cor-destaque), var(--cor-ciano));
+}
+
+.chest-card__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.chest-card__drop {
+  flex: 1;
+  background: linear-gradient(90deg, #7c3aed, var(--cor-destaque-2));
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px;
+  box-shadow: var(--brilho-roxo);
+}
+
+.chest-card__drop:not(:disabled):hover {
+  filter: brightness(1.15);
+}
+
+.chest-card__drop:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.chest-card__reset {
+  background: var(--cor-superficie-alta);
+  color: var(--cor-texto-suave);
+  padding: 10px 14px;
+}
+
+.chest-card__reset:hover {
+  color: var(--cor-texto);
+}
