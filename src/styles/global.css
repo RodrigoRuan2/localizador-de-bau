@@ -85,22 +85,6 @@ body {
   transition: color 0.4s;
 }
 
-/* Scanlines: linhas horizontais finíssimas por cima de tudo,
-   lembrando um monitor CRT antigo. pointer-events: none garante
-   que a camada não bloqueia nenhum clique. */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(255, 255, 255, 0.02) 0 1px,
-    transparent 1px 3px
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-
 /* Acessibilidade com estilo: contorno ciano em quem recebe foco via teclado */
 :focus-visible {
   outline: 2px solid var(--cor-ciano);
@@ -113,9 +97,8 @@ body::before {
 }
 
 /* Respeito à preferência de movimento reduzido do sistema operacional
-   (WCAG 2.3.3): desliga animações, transições e o overlay de scanlines
-   para quem tem sensibilidade a movimento. O tema continua roxo neon —
-   só para de piscar e pulsar. */
+   (WCAG 2.3.3): desliga animações e transições para quem tem
+   sensibilidade a movimento. O tema continua igual — só para de pulsar. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -123,10 +106,6 @@ body::before {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
-  }
-
-  body::before {
-    display: none; /* scanlines fora */
   }
 }
 
