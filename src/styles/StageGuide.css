@@ -16,6 +16,13 @@
   list-style-position: inside;
 }
 
+.stage-guide__summary-icon {
+  height: 1.2em;
+  width: auto;
+  vertical-align: -0.2em;
+  image-rendering: pixelated;
+}
+
 .stage-guide__summary:hover {
   filter: brightness(1.2);
 }

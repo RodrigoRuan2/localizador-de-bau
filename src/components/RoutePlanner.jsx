@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { CHEST_LEVELS, stagesForLevel, stageName, difficultyName } from '../utils/stages.js'
 import { averageDropInterval } from '../utils/stats.js'
 import { formatDuration } from '../utils/time.js'
+import iconRota from '../assets/icon-rota.png'
 import '../styles/RoutePlanner.css'
 
 // Planejador de rota: o jogador escolhe quais NÍVEIS de baú quer farmar
@@ -48,7 +49,9 @@ function RoutePlanner({ dropHistory, defaultMin, heroLevel, onCreateRoute }) {
 
   return (
     <details className="route-planner">
-      <summary className="route-planner__summary">🗺️ Planejador de rota</summary>
+      <summary className="route-planner__summary">
+        <img className="route-planner__summary-icon" src={iconRota} alt="" /> Planejador de rota
+      </summary>
 
       <p className="route-planner__hint">
         Escolha os níveis de baú que quer farmar. O app sugere a melhor fase de cada um (maior

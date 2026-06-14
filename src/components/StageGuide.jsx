@@ -7,6 +7,7 @@ import {
   stageId,
   stageName,
 } from '../utils/stages.js'
+import iconGuia from '../assets/icon-guia.png'
 import '../styles/StageGuide.css'
 
 // Remove acentos e põe em minúsculas, para a busca encontrar
@@ -48,7 +49,10 @@ function StageGuide() {
 
   return (
     <details className="stage-guide">
-      <summary className="stage-guide__summary">📜 Guia de fases — chances de baú</summary>
+      <summary className="stage-guide__summary">
+        <img className="stage-guide__summary-icon" src={iconGuia} alt="" /> Guia de fases — chances
+        de baú
+      </summary>
 
       <div className="stage-guide__filters">
         <label className="stage-guide__field">

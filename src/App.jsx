@@ -9,6 +9,7 @@ import { useNow } from './hooks/useNow.js'
 import { stagesForLevel, stageId } from './utils/stages.js'
 import { averageDropInterval } from './utils/stats.js'
 import { formatDuration } from './utils/time.js'
+import bauIcon from './assets/bau.png'
 import './styles/App.css'
 
 // Chaves usadas no localStorage (prefixadas para não colidir com outros sites)
@@ -214,7 +215,9 @@ function App() {
   return (
     <div className="app">
       <header className="app__header">
-        <h1 className="app__title">📦 Localizador de Baú</h1>
+        <h1 className="app__title">
+          <img className="app__title-icon" src={bauIcon} alt="" /> Localizador de Baú
+        </h1>
         <p className="app__subtitle">
           Cronômetro de drop de baús — TBH: Task Bar Hero. Quando um baú dropar, clique em
           "Baú dropou!" e rotacione para outra fase enquanto o cooldown corre.

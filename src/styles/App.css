@@ -13,6 +13,10 @@
 
 .app__title {
   margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4em;
   font-family: 'Orbitron', 'Segoe UI', sans-serif;
   /* clamp(mínimo, ideal, máximo): a fonte cresce com a largura da tela
      (4.5vw) mas nunca fica menor que 1.2rem nem maior que 1.9rem.
@@ -22,6 +26,14 @@
   text-transform: uppercase;
   color: var(--cor-destaque);
   text-shadow: 0 0 18px color-mix(in srgb, var(--cor-destaque) 60%, transparent);
+}
+
+/* Ícone do baú no título. Escala junto com a fonte (em) e mantém os
+   pixels nítidos — é pixel-art, então não suavizamos ao redimensionar. */
+.app__title-icon {
+  height: 1.6em;
+  width: auto;
+  image-rendering: pixelated;
 }
 
 .app__subtitle {
