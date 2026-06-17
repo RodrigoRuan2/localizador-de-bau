@@ -7,13 +7,25 @@
 // Última curadoria desta lista: 15/06/2026
 
 export const GAME_UPDATE_SOURCE = 'https://store.steampowered.com/news/app/3678970'
-export const GAME_UPDATES_CURATED_AT = '15/06/2026'
+export const GAME_UPDATES_CURATED_AT = '17/06/2026'
 
 export const GAME_UPDATES = [
   {
+    date: '17/06/2026',
+    title: 'Hotfix (v1.00.14)',
+    novo: true,
+    summary:
+      'Corrigido o bug que deixava pegar baús mais rápido ao trocar de fase — isso afeta direto a estratégia de rotação. Também corrigido o caso em que, ao reconectar com mais de 5 baús guardados, só 5 eram mantidos (agora os baús retidos são preservados).',
+  },
+  {
+    date: '15/06/2026',
+    title: 'Hotfix (v1.00.13)',
+    summary:
+      'Corrigido o recebimento de baús inválidos rápido demais ao reconectar. Também corrigido o caso em que Decoração / Gravação / Inscrição não podiam ser aplicadas em equipamentos legados não sintetizáveis.',
+  },
+  {
     date: '15/06/2026',
     title: 'Migração de servidor (v1.00.12)',
-    novo: true,
     summary:
       'Migração de servidor concluída — primeiro passo para resolver a sobrecarga. ⚠️ Atenção: depois de entrar na v1.00.12, reconectar numa versão antiga pode causar perda de itens (irreversível). Mantenha sempre a versão mais nova.',
   },
