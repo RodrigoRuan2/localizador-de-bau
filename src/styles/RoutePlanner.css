@@ -130,6 +130,22 @@
   color: var(--cor-perigo);
 }
 
+.route-planner__ritmo {
+  font-size: 0.85rem;
+}
+
+.route-planner__ritmo--bom {
+  color: var(--cor-pronto);
+}
+
+.route-planner__ritmo--lento {
+  color: var(--cor-destaque);
+}
+
+.route-planner__ritmo--rapido {
+  color: var(--cor-texto-suave);
+}
+
 .route-planner__coverage {
   margin: 14px 0;
   font-size: 0.9rem;

@@ -43,7 +43,19 @@ function RoutePlanner({ dropHistory, defaultMin, heroLevel, onCreateRoute }) {
       const avg = averageDropInterval(dropHistory[level])
       // Herói baixo demais até para a fase mais fácil deste nível de baú
       const tooHard = hl > 0 && clareaveis.length === 0
-      return { level, best, fastest, avg, tooHard }
+      // "Ritmo de clear" pela regra dos 2-3 hits do meta: a folga entre o seu
+      // nível e o dos inimigos indica se o kill é rápido demais (gear fraco),
+      // no ponto ideal, ou lento. É uma ESTIMATIVA — não medimos o seu dano.
+      const folga = hl - best.enemy_level
+      const ritmo =
+        hl === 0 || tooHard
+          ? null
+          : folga >= 20
+            ? { tipo: 'rapido', texto: 'clear muito rápido — o gear pode vir fraco' }
+            : folga >= 6
+              ? { tipo: 'bom', texto: 'bom ritmo de farm (perto dos 2-3 golpes)' }
+              : { tipo: 'lento', texto: 'kill pode ser lento — o ideal é matar em 2-3 golpes' }
+      return { level, best, fastest, avg, tooHard, ritmo }
     })
     .sort((a, b) => a.best.enemy_level - b.best.enemy_level)
 
@@ -57,8 +69,8 @@ function RoutePlanner({ dropHistory, defaultMin, heroLevel, onCreateRoute }) {
         Escolha os níveis de baú que quer farmar. O app sugere a melhor fase de cada um (maior
         chance de drop e clear mais rápido) e monta a rotação.
         {hl > 0
-          ? ` Considerando o herói Lv ${hl}: fases com inimigos acima disso são marcadas como ainda difíceis.`
-          : ' Dica: preencha o "Nível do herói" nas configurações para avisar quais fases você ainda não clareia.'}
+          ? ` Considerando o herói Lv ${hl} e a "regra dos 2-3 hits" do meta: o ideal é farmar onde você mata os inimigos em 2-3 golpes (clear rápido + gear relevante). Cada fase mostra o ritmo estimado de clear.`
+          : ' Dica: preencha o "Nível do herói" nas configurações para o app estimar o ritmo de clear (regra dos 2-3 hits do meta).'}
       </p>
 
       <div className="route-planner__levels">
@@ -108,6 +120,11 @@ function RoutePlanner({ dropHistory, defaultMin, heroLevel, onCreateRoute }) {
                     <span className="route-planner__warn">
                       ⚠ Seu herói (Lv {hl}) ainda não clareia esta fase (inimigos Lv{' '}
                       {item.best.enemy_level}) — suba de nível antes.
+                    </span>
+                  )}
+                  {item.ritmo && (
+                    <span className={`route-planner__ritmo route-planner__ritmo--${item.ritmo.tipo}`}>
+                      🎯 {item.ritmo.texto}
                     </span>
                   )}
                 </div>

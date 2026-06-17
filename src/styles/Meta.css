@@ -1,0 +1,95 @@
+/* Seção de estratégia & meta, recolhível. */
+
+.meta {
+  margin-top: 16px;
+  background: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  padding: 0 18px 12px;
+}
+
+.meta__summary {
+  cursor: pointer;
+  padding: 14px 0;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--cor-destaque);
+  list-style-position: inside;
+}
+
+.meta__summary:hover {
+  filter: brightness(1.2);
+}
+
+.meta__note {
+  margin: 0 0 8px;
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+}
+
+.meta__titulo {
+  margin: 16px 0 6px;
+  font-size: 0.95rem;
+  color: var(--cor-ciano);
+}
+
+.meta__lista {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+}
+
+.meta__lista strong {
+  color: var(--cor-texto);
+}
+
+/* Heróis: linha com o selo de tier antes do texto */
+.meta__heroi {
+  list-style: none;
+  margin-left: -18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.meta__tier {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  color: #fff;
+}
+
+/* S = destaque, A = ciano, B = neutro */
+.meta__tier--s {
+  background: linear-gradient(135deg, var(--cor-grad-1), var(--cor-destaque-2));
+}
+
+.meta__tier--a {
+  background: color-mix(in srgb, var(--cor-ciano) 70%, #000);
+}
+
+.meta__tier--b {
+  background: var(--cor-superficie-alta);
+  color: var(--cor-texto-suave);
+}
+
+.meta__obs {
+  color: var(--cor-texto-suave);
+}
+
+.meta__pet {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+}
