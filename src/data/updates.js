@@ -3,9 +3,18 @@
 // Datas reais, baseadas no histórico de commits do projeto.
 export const UPDATES = [
   {
+    date: '18/06/2026',
+    title: 'Estratégia & meta + ritmo de clear',
+    novo: true,
+    items: [
+      'Nova seção "Estratégia & meta": tier list de heróis (S/A/B), melhores times, pet e dicas de farm curadas da comunidade',
+      'Indicador de ritmo de clear no planejador: regra dos 2-3 hits — cada fase mostra se o kill está no ponto ideal, lento ou rápido demais',
+      'Hotfix v1.00.14 refletido no app: aviso sobre o fim do exploit de trocar de fase na seção de meta',
+    ],
+  },
+  {
     date: '14/06/2026',
     title: 'Cara do jogo',
-    novo: true,
     items: [
       'Baú do jogo no título e no favicon (aba do navegador)',
       'Portal do jogo no Planejador de rota',

@@ -41,6 +41,12 @@ quando o cooldown termina.
 - ✅ **Cards arrastáveis** para reordenar a rotação (drag-and-drop nativo)
 - ✅ **Dois temas com imagem de fundo**: roxo (cyberpunk) e cinza
   (monocromático), trocáveis num clique; fontes Orbitron/Rajdhani
+- ✅ **📢 Novidades do app e do jogo**: changelog interno + atualizações da Steam
+  traduzidas e curadas (sem CORS — atualizadas à mão a partir da fonte oficial)
+- ✅ **⚔️ Estratégia & meta**: seção curada com tier list de heróis (S/A/B),
+  melhores times, pet e dicas de farm da comunidade — atualizada após cada patch
+- ✅ **🎯 Ritmo de clear no planejador**: regra dos 2-3 hits — mostra se o kill
+  está no ponto ideal, lento ou rápido demais (estimativa pelo nível dos inimigos)
 - ✅ Deploy no GitHub Pages
 
 ## Como rodar
@@ -59,17 +65,25 @@ src/
 ├── components/       # peças visuais reutilizáveis
 │   ├── ChestCard.jsx   # card de um baú com countdown
 │   ├── AddChest.jsx    # formulário de adicionar baú
-│   ├── SettingsBar.jsx # duração padrão, som, volume
+│   ├── SettingsBar.jsx # duração padrão, som, volume, tema, nível do herói
 │   ├── StageGuide.jsx  # tabela de consulta das 120 fases
+│   ├── RoutePlanner.jsx# planejador de rota com ritmo de clear (regra 2-3 hits)
+│   ├── Meta.jsx        # estratégia & meta: heróis, times, pet, farm
+│   ├── Updates.jsx     # changelog do app
+│   ├── GameUpdates.jsx # novidades do jogo (Steam, traduzidas)
 │   └── EventLog.jsx    # histórico de eventos
 ├── hooks/
 │   └── useNow.js     # hook que faz o relógio "andar" na tela
 ├── utils/
 │   ├── stages.js     # consultas aos dados das fases
+│   ├── stats.js      # cálculo de média real entre drops
 │   ├── time.js       # formatação MM:SS
 │   └── sound.js      # beep de alerta (Web Audio API)
 ├── data/
-│   └── stages.json   # as 120 fases do jogo com nível e % de drop
+│   ├── stages.json      # as 120 fases do jogo com nível e % de drop
+│   ├── meta.js          # meta atual: heróis, times, pet, dicas (curado)
+│   ├── updates.js       # changelog interno do app
+│   └── game-updates.js  # atualizações do jogo (fonte: Steam)
 └── styles/           # todo o CSS do projeto (um arquivo por componente)
 ```
 
@@ -83,5 +97,4 @@ mudar os drops, só o JSON muda.
 - [ ] Notificação do navegador (Notification API) quando um baú ficar pronto
 - [ ] Cronômetro da caixa de correio (o jogo segura baús e entrega depois,
   empilhados — atualização de 10/06/2026)
-- [ ] Guia de rota por nível de jogador
-- [ ] Deploy no GitHub Pages
+- [ ] Atualizar cooldown padrão se a comunidade descobrir o valor real pós-hotfix v1.00.14
