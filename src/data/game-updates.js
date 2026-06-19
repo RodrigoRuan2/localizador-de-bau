@@ -12,8 +12,14 @@ export const GAME_UPDATES_CURATED_AT = '19/06/2026'
 export const GAME_UPDATES = [
   {
     date: '19/06/2026',
-    title: 'Hotfix (v1.00.15)',
+    title: 'Hotfix (v1.00.16)',
     novo: true,
+    summary:
+      'Correção de achievement: o troféu de "primeiro equipamento de alta qualidade" era desbloqueado ao obter qualquer item, não só equipamentos. Corrigido.',
+  },
+  {
+    date: '19/06/2026',
+    title: 'Hotfix (v1.00.15)',
     summary:
       'Correções de balanço: dano do Wrath of Heaven do Priest estava absurdamente alto (corrigido); Blessing of Might não empilhava corretamente (corrigido). Também corrigido o cap de 75% de Redução de Dano e o efeito Explosive Bolt que aplicava redução de cooldown em vez de contagem de ataque básico.',
   },
