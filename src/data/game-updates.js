@@ -4,16 +4,22 @@
 // da fonte oficial. Para atualizar, peça "atualiza as novidades do jogo".
 //
 // Fonte: https://store.steampowered.com/news/app/3678970
-// Última curadoria desta lista: 15/06/2026
+// Última curadoria desta lista: 19/06/2026
 
 export const GAME_UPDATE_SOURCE = 'https://store.steampowered.com/news/app/3678970'
-export const GAME_UPDATES_CURATED_AT = '17/06/2026'
+export const GAME_UPDATES_CURATED_AT = '19/06/2026'
 
 export const GAME_UPDATES = [
   {
+    date: '19/06/2026',
+    title: 'Hotfix (v1.00.15)',
+    novo: true,
+    summary:
+      'Correções de balanço: dano do Wrath of Heaven do Priest estava absurdamente alto (corrigido); Blessing of Might não empilhava corretamente (corrigido). Também corrigido o cap de 75% de Redução de Dano e o efeito Explosive Bolt que aplicava redução de cooldown em vez de contagem de ataque básico.',
+  },
+  {
     date: '17/06/2026',
     title: 'Hotfix (v1.00.14)',
-    novo: true,
     summary:
       'Corrigido o bug que deixava pegar baús mais rápido ao trocar de fase — isso afeta direto a estratégia de rotação. Também corrigido o caso em que, ao reconectar com mais de 5 baús guardados, só 5 eram mantidos (agora os baús retidos são preservados).',
   },

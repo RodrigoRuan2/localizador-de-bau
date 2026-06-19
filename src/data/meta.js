@@ -3,15 +3,15 @@
 // novidades do jogo. Para atualizar, peça "atualiza o meta".
 //
 // Fonte principal: https://progameguides.com/guides/tbh-task-bar-hero-tier-list-best-characters-pets/
-// Última curadoria: 17/06/2026
+// Última curadoria: 19/06/2026
 
-export const META_CURATED_AT = '17/06/2026'
+export const META_CURATED_AT = '19/06/2026'
 export const META_SOURCE =
   'https://progameguides.com/guides/tbh-task-bar-hero-tier-list-best-characters-pets/'
 
 export const META_HEROIS = [
   { nome: 'Ranger', tier: 'S', papel: 'Melhor DPS free — limpa waves quase sozinho (sangramento + alta velocidade de ataque).' },
-  { nome: 'Priest', tier: 'S', papel: 'Melhor tank/healer — segura a frente, cura e reviva; obrigatório no late game.' },
+  { nome: 'Priest', tier: 'S', papel: 'Melhor tank/healer — segura a frente, cura e reviva; obrigatório no late game. (v1.00.15: dano do Wrath of Heaven normalizado, Blessing of Might não empilha mais — suporte continua forte.)' },
   { nome: 'Sorcerer', tier: 'A', papel: 'AoE elemental que controla as waves; entra no lugar do tank quando o time já aguenta.' },
   { nome: 'Knight', tier: 'B', papel: 'Caiu no meta atual; ainda serve como tank no começo.' },
 ]
