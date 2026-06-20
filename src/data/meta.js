@@ -3,9 +3,9 @@
 // novidades do jogo. Para atualizar, peça "atualiza o meta".
 //
 // Fonte principal: https://progameguides.com/guides/tbh-task-bar-hero-tier-list-best-characters-pets/
-// Última curadoria: 19/06/2026
+// Última curadoria: 20/06/2026
 
-export const META_CURATED_AT = '19/06/2026'
+export const META_CURATED_AT = '20/06/2026'
 export const META_SOURCE =
   'https://progameguides.com/guides/tbh-task-bar-hero-tier-list-best-characters-pets/'
 
@@ -29,5 +29,5 @@ export const META_FARM = [
   'Deixe os baús comuns (brancos) estocados e foque nos baús azuis do chefe de fase, que têm drop melhor.',
   'Boss box e desafios de Soulstone são as fontes de gear Tier 10.',
   'Caixa de correio: o refresh caiu de 10s para 5s — itens de mercado/recompensa chegam nela, não no inventário.',
-  '⚠️ O hotfix v1.00.14 corrigiu o truque de pegar baú trocando de fase rápido; a rotação legítima (vários níveis, cada um com cooldown) continua valendo.',
+'⚠️ O exploit de pegar baú trocando de fase rápido foi corrigido (v1.00.14) e agora tem anticheat: a v1.00.17 bloqueia trocas de fase por um tempo quando detecta troca "anormal". A rotação legítima (vários níveis, cada um esperando seu cooldown) continua valendo — só não fique trocando freneticamente.',
 ]

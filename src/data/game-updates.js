@@ -12,10 +12,16 @@ export const GAME_UPDATES_CURATED_AT = '20/06/2026'
 export const GAME_UPDATES = [
   {
     date: '20/06/2026',
-    title: 'Manutenção de emergência do servidor',
+    title: 'Hotfix (v1.00.17)',
     novo: true,
     summary:
-      'Um problema de segurança foi identificado no servidor e uma manutenção de emergência está em andamento. A equipe aplicará a correção e publicará um aviso separado quando terminar.',
+      'Fim da manutenção de emergência. Corrigida uma falha de segurança e, quando o jogo detecta uma troca de fase "anormal", as trocas passam a ser bloqueadas por um tempo (anticheat reforçando o fim do exploit). Pode haver fila de até ~30 min após a atualização.',
+  },
+  {
+    date: '20/06/2026',
+    title: 'Manutenção de emergência do servidor',
+    summary:
+      'Um problema de segurança foi identificado no servidor e uma manutenção de emergência foi realizada. Resolvido na v1.00.17 (acima).',
   },
   {
     date: '19/06/2026',
