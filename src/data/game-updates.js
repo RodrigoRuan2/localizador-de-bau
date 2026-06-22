@@ -4,16 +4,22 @@
 // da fonte oficial. Para atualizar, peça "atualiza as novidades do jogo".
 //
 // Fonte: https://store.steampowered.com/news/app/3678970
-// Última curadoria desta lista: 20/06/2026
+// Última curadoria desta lista: 22/06/2026
 
 export const GAME_UPDATE_SOURCE = 'https://store.steampowered.com/news/app/3678970'
-export const GAME_UPDATES_CURATED_AT = '20/06/2026'
+export const GAME_UPDATES_CURATED_AT = '22/06/2026'
 
 export const GAME_UPDATES = [
   {
+    date: '22/06/2026',
+    title: 'Hotfix (v1.00.18)',
+    novo: true,
+    summary:
+      'Corrigido o caso em que as trocas de fase ficavam bloqueadas ao desafiar o chefe de ato várias vezes seguidas (ajuste do anticheat da v1.00.17, que estava pegando troca legítima). Também corrigida uma falha de segurança.',
+  },
+  {
     date: '20/06/2026',
     title: 'Hotfix (v1.00.17)',
-    novo: true,
     summary:
       'Fim da manutenção de emergência. Corrigida uma falha de segurança e, quando o jogo detecta uma troca de fase "anormal", as trocas passam a ser bloqueadas por um tempo (anticheat reforçando o fim do exploit). Pode haver fila de até ~30 min após a atualização.',
   },
