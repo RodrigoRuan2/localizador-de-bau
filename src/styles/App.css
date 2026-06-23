@@ -51,12 +51,6 @@
   margin-top: 24px;
 }
 
-.app__empty {
-  text-align: center;
-  color: var(--cor-texto-suave);
-  margin-top: 40px;
-}
-
 .app__footer {
   margin-top: 48px;
   text-align: center;

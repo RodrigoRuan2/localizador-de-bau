@@ -1,0 +1,143 @@
+/* Seção PRINCIPAL: ranking dos mais vendidos no Mercado Steam, com foto.
+   Fica sempre aberta e no topo, com um pouco mais de destaque que as demais. */
+
+.market {
+  margin-top: 16px;
+  background: var(--cor-superficie);
+  /* Borda de destaque sutil para sinalizar que é a seção principal */
+  border: 1px solid color-mix(in srgb, var(--cor-destaque) 45%, var(--cor-borda));
+  border-radius: 14px;
+  padding: 4px 18px 14px;
+  box-shadow: var(--brilho-roxo);
+}
+
+.market__title {
+  margin: 12px 0 4px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
+  color: var(--cor-destaque);
+}
+
+.market__note {
+  margin: 0 0 14px;
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+}
+
+.market__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Cada linha é uma grade fixa: posição | foto | nome | preço | volume.
+   Larguras fixas nas pontas mantêm tudo alinhado em coluna. */
+.market__row {
+  display: grid;
+  grid-template-columns: 28px 44px 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: var(--cor-superficie-alta);
+  border: 1px solid var(--cor-borda);
+}
+
+/* Os 3 primeiros colocados ganham a borda na cor de destaque (pódio) */
+.market__row:nth-child(-n + 3) {
+  border-color: color-mix(in srgb, var(--cor-destaque) 55%, transparent);
+}
+
+.market__rank {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--cor-destaque);
+  text-align: center;
+}
+
+.market__thumb {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+}
+
+.market__img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--cor-fundo) 60%, transparent);
+}
+
+/* Placeholder quando o item não tem ícone (raro): mantém a coluna alinhada */
+.market__img--vazio {
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+}
+
+.market__name {
+  font-weight: 600;
+  /* Nome longo não empurra as colunas de preço/volume: corta com reticências. */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.market__price {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--cor-pronto);
+  white-space: nowrap;
+}
+
+.market__volume {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.9rem;
+  color: var(--cor-texto);
+  white-space: nowrap;
+  text-align: right;
+  min-width: 96px; /* reserva o espaço para todas as linhas ficarem iguais */
+}
+
+.market__volume-label {
+  color: var(--cor-texto-suave);
+}
+
+/* "sem vendas" não é cor sozinha (acessibilidade): tem texto explícito */
+.market__volume-zero {
+  font-size: 0.8rem;
+  color: var(--cor-texto-suave);
+  font-style: italic;
+}
+
+.market__legend {
+  margin: 14px 0 2px;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--cor-texto-suave);
+}
+
+/* Telas estreitas: o preço desce para baixo do nome, volume continua à direita */
+@media (max-width: 440px) {
+  .market__row {
+    grid-template-columns: 22px 40px 1fr auto;
+    row-gap: 2px;
+  }
+  .market__price {
+    grid-column: 3;
+    font-size: 0.9rem;
+  }
+  .market__volume {
+    grid-column: 4;
+    grid-row: 1 / 3;
+    min-width: 80px;
+  }
+}

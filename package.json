@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --base=/localizador-de-bau/",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "mercado": "node scripts/coletar-mercado.mjs"
   },
   "dependencies": {
     "react": "^19.1.0",

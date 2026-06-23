@@ -12,7 +12,7 @@ import '../styles/RoutePlanner.css'
 // mais fracos (clear mais rápido). O jogo não expõe o tempo de clear, então
 // usamos o nível dos inimigos como proxy de velocidade — honestidade > número
 // inventado.
-function RoutePlanner({ dropHistory, defaultMin, heroLevel, onCreateRoute }) {
+function RoutePlanner({ dropHistory, defaultMin, heroLevel, onCreateRoute, children, footer }) {
   const [selected, setSelected] = useState([])
 
   // Nível do herói como número (0 = não informado, então não filtramos nada).
@@ -65,12 +65,17 @@ function RoutePlanner({ dropHistory, defaultMin, heroLevel, onCreateRoute }) {
         <img className="route-planner__summary-icon" src={iconRota} alt="" /> Planejador de rota
       </summary>
 
+      {/* Configurações globais (duração, nível do herói, som, tema...). Vêm do
+          App como children: ele continua dono dos dados; o planejador só as
+          "abriga" no topo, já que nível do herói e duração alimentam a rota. */}
+      {children && <div className="route-planner__settings">{children}</div>}
+
       <p className="route-planner__hint">
         Escolha os níveis de baú que quer farmar. O app sugere a melhor fase de cada um (maior
         chance de drop e clear mais rápido) e monta a rotação.
         {hl > 0
           ? ` Considerando o herói Lv ${hl} e a "regra dos 2-3 hits" do meta: o ideal é farmar onde você mata os inimigos em 2-3 golpes (clear rápido + gear relevante). Cada fase mostra o ritmo estimado de clear.`
-          : ' Dica: preencha o "Nível do herói" nas configurações para o app estimar o ritmo de clear (regra dos 2-3 hits do meta).'}
+          : ' Dica: preencha o "Nível do herói" acima para o app estimar o ritmo de clear (regra dos 2-3 hits do meta).'}
       </p>
 
       <div className="route-planner__levels">
@@ -147,6 +152,10 @@ function RoutePlanner({ dropHistory, defaultMin, heroLevel, onCreateRoute }) {
           </button>
         </>
       )}
+
+      {/* Slot do rodapé: o App injeta aqui o "Adicionar baú" (criar timer
+          manualmente). O planejador não sabe o que é — só posiciona. */}
+      {footer && <div className="route-planner__footer">{footer}</div>}
     </details>
   )
 }

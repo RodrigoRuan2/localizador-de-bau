@@ -7,6 +7,7 @@ import StageGuide from './components/StageGuide.jsx'
 import RoutePlanner from './components/RoutePlanner.jsx'
 import Updates from './components/Updates.jsx'
 import GameUpdates from './components/GameUpdates.jsx'
+import MarketTop from './components/MarketTop.jsx'
 import Meta from './components/Meta.jsx'
 import { useNow } from './hooks/useNow.js'
 import { stagesForLevel, stageId } from './utils/stages.js'
@@ -227,20 +228,29 @@ function App() {
         </p>
       </header>
 
-      <SettingsBar settings={settings} onChange={setSettings} onResetAll={handleResetAll} />
+      <MarketTop />
+
       <RoutePlanner
         dropHistory={dropHistory}
         defaultMin={settings.durationMin}
         heroLevel={settings.heroLevel}
         onCreateRoute={handleCreateRoute}
-      />
-      <AddChest usedLevels={usedLevels} onAdd={handleAdd} />
+        footer={
+          <>
+            <AddChest usedLevels={usedLevels} onAdd={handleAdd} />
+            {timers.length === 0 && (
+              <p className="route-planner__empty">
+                Nenhum baú na rotação ainda — escolha um nível acima e clique em "Adicionar
+                baú". 👆
+              </p>
+            )}
+          </>
+        }
+      >
+        <SettingsBar settings={settings} onChange={setSettings} onResetAll={handleResetAll} />
+      </RoutePlanner>
 
-      {timers.length === 0 ? (
-        <p className="app__empty">
-          Nenhum baú na rotação ainda. Adicione o nível de baú que você está farmando. 👆
-        </p>
-      ) : (
+      {timers.length > 0 && (
         <main className="app__grid">
           {timers.map((timer) => (
             <ChestCard
