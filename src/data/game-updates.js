@@ -4,16 +4,22 @@
 // da fonte oficial. Para atualizar, peça "atualiza as novidades do jogo".
 //
 // Fonte: https://store.steampowered.com/news/app/3678970
-// Última curadoria desta lista: 22/06/2026
+// Última curadoria desta lista: 23/06/2026
 
 export const GAME_UPDATE_SOURCE = 'https://store.steampowered.com/news/app/3678970'
-export const GAME_UPDATES_CURATED_AT = '22/06/2026'
+export const GAME_UPDATES_CURATED_AT = '23/06/2026'
 
 export const GAME_UPDATES = [
   {
+    date: '23/06/2026',
+    title: 'Cronograma do Mercado Steam + Hotfix (v1.00.20)',
+    novo: true,
+    summary:
+      'Anunciado o cronograma de abertura do Mercado Steam: 25/06/2026 (qui), às 04h00 (horário de Brasília). No início, os 3 grades mais altos (Cosmic, Divine e Celestial) ficam temporariamente proibidos de serem listados — só as Soulstones podem. Os grades restritos serão liberados depois, conforme a estabilidade do Mercado. Também aplicado um hotfix corrigindo uma falha de segurança.',
+  },
+  {
     date: '22/06/2026',
     title: 'Hotfix (v1.00.19)',
-    novo: true,
     summary:
       'Corrigido o limite máximo de velocidade de movimento que estava sendo aplicado incorretamente.',
   },
