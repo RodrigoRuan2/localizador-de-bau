@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { UPDATES } from '../data/updates.js'
 import '../styles/Updates.css'
 
@@ -29,4 +30,5 @@ function Updates() {
   )
 }
 
-export default Updates
+// memo(): changelog estático sem props — não precisa redesenhar com o relógio.
+export default memo(Updates)

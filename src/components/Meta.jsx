@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import {
   META_HEROIS,
   META_TIMES,
@@ -59,4 +60,6 @@ function Meta() {
   )
 }
 
-export default Meta
+// memo(): conteúdo estático sem props — renderiza uma vez só, não acompanha
+// o relógio do App.
+export default memo(Meta)

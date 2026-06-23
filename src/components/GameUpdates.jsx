@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import {
   GAME_UPDATES,
   GAME_UPDATE_SOURCE,
@@ -36,4 +37,5 @@ function GameUpdates() {
   )
 }
 
-export default GameUpdates
+// memo(): notas do jogo estáticas sem props — renderiza uma vez, não segue o relógio.
+export default memo(GameUpdates)

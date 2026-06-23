@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { memo, useState } from 'react'
 import {
   CHEST_LEVELS,
   DIFFICULTIES,
@@ -142,4 +142,7 @@ function StageGuide() {
   )
 }
 
-export default StageGuide
+// memo(): a tabela de 120 fases não depende do relógio do App. Sem memo, ela
+// re-renderizaria 2x/s junto com os cronômetros. Como só muda quando os
+// filtros internos mudam, memo evita esse trabalho desperdiçado.
+export default memo(StageGuide)
