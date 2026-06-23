@@ -219,6 +219,18 @@ function App() {
   return (
     <div className="app">
       <header className="app__header">
+        <div className="app__topbar">
+          <button
+            type="button"
+            className="app__theme-toggle"
+            onClick={() =>
+              setSettings((s) => ({ ...s, theme: s.theme === 'roxo' ? 'cinza' : 'roxo' }))
+            }
+            title="Alternar entre o tema roxo e o cinza"
+          >
+            {settings.theme === 'roxo' ? '🟣 Tema roxo' : '⚪ Tema cinza'}
+          </button>
+        </div>
         <h1 className="app__title">
           <img className="app__title-icon" src={bauIcon} alt="" /> Localizador de Baú
         </h1>

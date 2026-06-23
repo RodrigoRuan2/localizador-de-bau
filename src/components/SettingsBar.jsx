@@ -53,17 +53,6 @@ function SettingsBar({ settings, onChange, onResetAll }) {
         />
       </label>
 
-      <button
-        type="button"
-        className="settings__button"
-        onClick={() =>
-          onChange({ ...settings, theme: settings.theme === 'roxo' ? 'cinza' : 'roxo' })
-        }
-        title="Alternar entre o tema roxo e o cinza"
-      >
-        {settings.theme === 'roxo' ? '🟣 Tema roxo' : '⚪ Tema cinza'}
-      </button>
-
       <button type="button" className="settings__button" onClick={() => playAlert(settings.volume)}>
         🔊 Testar som
       </button>

@@ -11,6 +11,26 @@
   margin-bottom: 24px;
 }
 
+/* Barra no topo do cabeçalho: leva o botão de tema para a direita, em uma
+   linha própria, para não sobrepor o título em telas estreitas. */
+.app__topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 8px;
+}
+
+.app__theme-toggle {
+  background: var(--cor-superficie-alta);
+  color: var(--cor-texto);
+  border: 1px solid var(--cor-borda);
+  padding: 8px 14px;
+  font-size: 0.9rem;
+}
+
+.app__theme-toggle:hover {
+  filter: brightness(1.2);
+}
+
 .app__title {
   margin: 0;
   display: flex;
