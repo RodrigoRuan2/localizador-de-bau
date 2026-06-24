@@ -6,81 +6,81 @@
 // limit. O app apenas lê este arquivo.
 
 export const MARKET_SOURCE = 'https://steamcommunity.com/market/search/?appid=3678970'
-export const MARKET_COLLECTED_AT = "23/06/2026, 17:13:53"
+export const MARKET_COLLECTED_AT = "23/06/2026, 22:11:20"
 export const MARKET_CURRENCY = "R$"
 
 export const MARKET_TOP = [
   {
     "nome": "Wood",
     "hash": "Wood",
-    "listagens": 44378,
+    "listagens": 42690,
     "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk8yUehzqKcH8g_E54J",
     "menorPreco": "R$ 0,36",
-    "precoMediano": "R$ 0,39",
-    "volume24h": 6295
-  },
-  {
-    "nome": "Minor Sapphire",
-    "hash": "Minor Sapphire",
-    "listagens": 96780,
-    "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUeizqKcH3jdtwGa",
-    "menorPreco": "R$ 0,22",
-    "precoMediano": "R$ 0,24",
-    "volume24h": 4594
+    "precoMediano": "R$ 0,36",
+    "volume24h": 6687
   },
   {
     "nome": "Minor Amethyst",
     "hash": "Minor Amethyst",
-    "listagens": 3015,
+    "listagens": 2091,
     "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUelzqKcH25zIZYW",
     "menorPreco": "R$ 0,44",
-    "precoMediano": "R$ 0,46",
-    "volume24h": 4529
+    "precoMediano": "R$ 0,45",
+    "volume24h": 4333
+  },
+  {
+    "nome": "Minor Sapphire",
+    "hash": "Minor Sapphire",
+    "listagens": 96007,
+    "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUeizqKcH3jdtwGa",
+    "menorPreco": "R$ 0,22",
+    "precoMediano": "R$ 0,23",
+    "volume24h": 4215
   },
   {
     "nome": "Goblin Hide",
     "hash": "Goblin Hide",
-    "listagens": 35050,
+    "listagens": 34654,
     "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE88yUehzqKcH3BSI2ZW",
     "menorPreco": "R$ 0,20",
     "precoMediano": "R$ 0,21",
-    "volume24h": 3756
+    "volume24h": 3759
   },
   {
     "nome": "Leather",
     "hash": "Leather",
-    "listagens": 9479,
+    "listagens": 8310,
     "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEk8yUejzqKcHw9udK7N",
     "menorPreco": "R$ 0,40",
-    "precoMediano": "R$ 0,41",
-    "volume24h": 2735
+    "precoMediano": "R$ 0,42",
+    "volume24h": 3409
   },
   {
     "nome": "Slime Jelly",
     "hash": "Slime Jelly",
-    "listagens": 46272,
+    "listagens": 45631,
     "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE88yUejzqKcH-bZ6kdS",
     "menorPreco": "R$ 0,20",
-    "precoMediano": "R$ 0,21",
-    "volume24h": 2301
+    "precoMediano": "R$ 0,19",
+    "volume24h": 2394
   },
   {
     "nome": "Skeleton Bone",
     "hash": "Skeleton Bone",
-    "listagens": 49364,
+    "listagens": 49009,
     "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE88yUeizqKcH-mix536",
     "menorPreco": "R$ 0,20",
     "precoMediano": "R$ 0,21",
-    "volume24h": 1735
+    "volume24h": 1633
   },
   {
     "nome": "Soulstone - Normal",
     "hash": "Soulstone - Normal",
-    "listagens": 520,
+    "listagens": 516,
     "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEQ8yUehzqKcH5CC7Jxm",
-    "menorPreco": "R$ 17,40",
-    "precoMediano": "R$ 17,45",
-    "volume24h": 1572
+    "menorPreco": null,
+    "precoMediano": "R$ 18,41",
+    "volume24h": 1192
   },
   {
     "nome": "Jade Stone",
@@ -89,7 +89,7 @@ export const MARKET_TOP = [
     "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw9yUejzqKcHzoNjncj",
     "menorPreco": "R$ 11,06",
     "precoMediano": "R$ 11,06",
-    "volume24h": 107
+    "volume24h": 77
   },
   {
     "nome": "Dimensional Helmet (Arcana) A",
@@ -103,7 +103,7 @@ export const MARKET_TOP = [
   {
     "nome": "Ruby Pendant (Immortal) A",
     "hash": "Ruby Pendant (Immortal) A",
-    "listagens": 105,
+    "listagens": 104,
     "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsItAUNxQKSI6yUeg0OvcCPhX0moUmfY",
     "menorPreco": "R$ 0,17",
     "precoMediano": null,
