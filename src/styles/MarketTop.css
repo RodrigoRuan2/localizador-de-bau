@@ -26,6 +26,49 @@
   color: var(--cor-texto-suave);
 }
 
+/* Barra de abas (categorias). Quebra em várias linhas em telas estreitas. */
+.market__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.market__tab {
+  background: var(--cor-superficie-alta);
+  color: var(--cor-texto-suave);
+  border: 1px solid var(--cor-borda);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.market__tab:hover {
+  filter: brightness(1.2);
+}
+
+/* Aba ativa: NÃO depende só de cor — muda texto (cor de destaque), borda, peso
+   e um leve preenchimento, para também ser perceptível por daltônicos. */
+.market__tab--ativa {
+  color: var(--cor-destaque);
+  background: color-mix(in srgb, var(--cor-destaque) 14%, var(--cor-superficie-alta));
+  border-color: var(--cor-destaque);
+  font-weight: 700;
+}
+
+/* Mensagem quando a aba não tem itens (ex.: categoria sem venda nas 24h) */
+.market__vazio {
+  margin: 8px 0;
+  padding: 16px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+  background: var(--cor-superficie-alta);
+  border: 1px dashed var(--cor-borda);
+  border-radius: 10px;
+}
+
 .market__list {
   list-style: none;
   margin: 0;
