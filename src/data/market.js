@@ -6,7 +6,7 @@
 // limit. O app apenas lê este arquivo.
 
 export const MARKET_SOURCE = 'https://steamcommunity.com/market/search/?appid=3678970'
-export const MARKET_COLLECTED_AT = "24/06/2026, 16:45:35"
+export const MARKET_COLLECTED_AT = "24/06/2026, 22:31:39"
 export const MARKET_CURRENCY = "R$"
 
 export const MARKET_TABS = [
@@ -21,7 +21,16 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,36",
         "precoMediano": "R$ 0,36",
-        "volume24h": 6699
+        "volume24h": 5690
+      },
+      {
+        "nome": "Minor Sapphire",
+        "hash": "Minor Sapphire",
+        "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUeizqKcH3jdtwGa",
+        "categoria": "materiais",
+        "menorPreco": "R$ 0,22",
+        "precoMediano": "R$ 0,23",
+        "volume24h": 3832
       },
       {
         "nome": "Leather",
@@ -30,25 +39,7 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,44",
         "precoMediano": "R$ 0,45",
-        "volume24h": 4399
-      },
-      {
-        "nome": "Minor Sapphire",
-        "hash": "Minor Sapphire",
-        "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUeizqKcH3jdtwGa",
-        "categoria": "materiais",
-        "menorPreco": "R$ 0,22",
-        "precoMediano": "R$ 0,24",
-        "volume24h": 3991
-      },
-      {
-        "nome": "Minor Amethyst",
-        "hash": "Minor Amethyst",
-        "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUelzqKcH25zIZYW",
-        "categoria": "materiais",
-        "menorPreco": "R$ 2,23",
-        "precoMediano": "R$ 1,88",
-        "volume24h": 2883
+        "volume24h": 3539
       },
       {
         "nome": "Slime Jelly",
@@ -57,7 +48,7 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,20",
         "precoMediano": "R$ 0,21",
-        "volume24h": 2829
+        "volume24h": 2400
       },
       {
         "nome": "Goblin Hide",
@@ -66,7 +57,7 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,20",
         "precoMediano": "R$ 0,21",
-        "volume24h": 2550
+        "volume24h": 2172
       },
       {
         "nome": "Skeleton Bone",
@@ -75,7 +66,16 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,20",
         "precoMediano": "R$ 0,21",
-        "volume24h": 2117
+        "volume24h": 2103
+      },
+      {
+        "nome": "Minor Amethyst",
+        "hash": "Minor Amethyst",
+        "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUelzqKcH25zIZYW",
+        "categoria": "materiais",
+        "menorPreco": "R$ 3,19",
+        "precoMediano": "R$ 3,17",
+        "volume24h": 1951
       },
       {
         "nome": "Soulstone - Normal",
@@ -83,16 +83,7 @@ export const MARKET_TABS = [
         "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEQ8yUehzqKcH5CC7Jxm",
         "categoria": "soulstone",
         "menorPreco": "R$ 18,74",
-        "precoMediano": "R$ 18,68",
-        "volume24h": 5
-      },
-      {
-        "nome": "Wolf Fang",
-        "hash": "Wolf Fang",
-        "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE89yUehzqKcH5e444t4",
-        "categoria": "materiais",
-        "menorPreco": "R$ 19,98",
-        "precoMediano": "R$ 15,49",
+        "precoMediano": "R$ 18,69",
         "volume24h": 2
       },
       {
@@ -102,6 +93,15 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 52,49",
         "precoMediano": "R$ 52,26",
+        "volume24h": 1
+      },
+      {
+        "nome": "Wolf Fang",
+        "hash": "Wolf Fang",
+        "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE89yUehzqKcH5e444t4",
+        "categoria": "materiais",
+        "menorPreco": "R$ 19,98",
+        "precoMediano": "R$ 15,49",
         "volume24h": 1
       },
       {
@@ -162,7 +162,16 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,36",
         "precoMediano": "R$ 0,36",
-        "volume24h": 6699
+        "volume24h": 5690
+      },
+      {
+        "nome": "Minor Sapphire",
+        "hash": "Minor Sapphire",
+        "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUeizqKcH3jdtwGa",
+        "categoria": "materiais",
+        "menorPreco": "R$ 0,22",
+        "precoMediano": "R$ 0,23",
+        "volume24h": 3832
       },
       {
         "nome": "Leather",
@@ -171,25 +180,7 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,44",
         "precoMediano": "R$ 0,45",
-        "volume24h": 4399
-      },
-      {
-        "nome": "Minor Sapphire",
-        "hash": "Minor Sapphire",
-        "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUeizqKcH3jdtwGa",
-        "categoria": "materiais",
-        "menorPreco": "R$ 0,22",
-        "precoMediano": "R$ 0,24",
-        "volume24h": 3991
-      },
-      {
-        "nome": "Minor Amethyst",
-        "hash": "Minor Amethyst",
-        "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUelzqKcH25zIZYW",
-        "categoria": "materiais",
-        "menorPreco": "R$ 2,23",
-        "precoMediano": "R$ 1,88",
-        "volume24h": 2883
+        "volume24h": 3539
       },
       {
         "nome": "Slime Jelly",
@@ -198,7 +189,7 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,20",
         "precoMediano": "R$ 0,21",
-        "volume24h": 2829
+        "volume24h": 2400
       },
       {
         "nome": "Goblin Hide",
@@ -207,7 +198,7 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,20",
         "precoMediano": "R$ 0,21",
-        "volume24h": 2550
+        "volume24h": 2172
       },
       {
         "nome": "Skeleton Bone",
@@ -216,16 +207,16 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,20",
         "precoMediano": "R$ 0,21",
-        "volume24h": 2117
+        "volume24h": 2103
       },
       {
-        "nome": "Wolf Fang",
-        "hash": "Wolf Fang",
-        "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE89yUehzqKcH5e444t4",
+        "nome": "Minor Amethyst",
+        "hash": "Minor Amethyst",
+        "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUelzqKcH25zIZYW",
         "categoria": "materiais",
-        "menorPreco": "R$ 19,98",
-        "precoMediano": "R$ 15,49",
-        "volume24h": 2
+        "menorPreco": "R$ 3,19",
+        "precoMediano": "R$ 3,17",
+        "volume24h": 1951
       },
       {
         "nome": "Moonstone",
@@ -234,6 +225,15 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 52,49",
         "precoMediano": "R$ 52,26",
+        "volume24h": 1
+      },
+      {
+        "nome": "Wolf Fang",
+        "hash": "Wolf Fang",
+        "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTE89yUehzqKcH5e444t4",
+        "categoria": "materiais",
+        "menorPreco": "R$ 19,98",
+        "precoMediano": "R$ 15,49",
         "volume24h": 1
       },
       {
@@ -467,8 +467,8 @@ export const MARKET_TABS = [
         "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEQ8yUehzqKcH5CC7Jxm",
         "categoria": "soulstone",
         "menorPreco": "R$ 18,74",
-        "precoMediano": "R$ 18,68",
-        "volume24h": 5
+        "precoMediano": "R$ 18,69",
+        "volume24h": 2
       },
       {
         "nome": "Wolf Fang",
@@ -477,16 +477,16 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 19,98",
         "precoMediano": "R$ 15,49",
-        "volume24h": 2
+        "volume24h": 1
       },
       {
         "nome": "Minor Amethyst",
         "hash": "Minor Amethyst",
         "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUelzqKcH25zIZYW",
         "categoria": "materiais",
-        "menorPreco": "R$ 2,23",
-        "precoMediano": "R$ 1,88",
-        "volume24h": 2883
+        "menorPreco": "R$ 3,19",
+        "precoMediano": "R$ 3,17",
+        "volume24h": 1951
       },
       {
         "nome": "Leather",
@@ -495,7 +495,7 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,44",
         "precoMediano": "R$ 0,45",
-        "volume24h": 4399
+        "volume24h": 3539
       },
       {
         "nome": "Wood",
@@ -504,7 +504,7 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,36",
         "precoMediano": "R$ 0,36",
-        "volume24h": 6699
+        "volume24h": 5690
       },
       {
         "nome": "Minor Sapphire",
@@ -512,8 +512,8 @@ export const MARKET_TABS = [
         "icone": "eBLtYAl6ntbtQ8HLU9Nwq_spna9pYjVMElAg-FGKLvMFaUQ2uz-HsIN5YP1KTEw8yUeizqKcH3jdtwGa",
         "categoria": "materiais",
         "menorPreco": "R$ 0,22",
-        "precoMediano": "R$ 0,24",
-        "volume24h": 3991
+        "precoMediano": "R$ 0,23",
+        "volume24h": 3832
       },
       {
         "nome": "Skeleton Bone",
@@ -522,7 +522,7 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,20",
         "precoMediano": "R$ 0,21",
-        "volume24h": 2117
+        "volume24h": 2103
       },
       {
         "nome": "Slime Jelly",
@@ -531,7 +531,7 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,20",
         "precoMediano": "R$ 0,21",
-        "volume24h": 2829
+        "volume24h": 2400
       },
       {
         "nome": "Goblin Hide",
@@ -540,7 +540,7 @@ export const MARKET_TABS = [
         "categoria": "materiais",
         "menorPreco": "R$ 0,20",
         "precoMediano": "R$ 0,21",
-        "volume24h": 2550
+        "volume24h": 2172
       }
     ]
   }
