@@ -4,16 +4,28 @@
 // da fonte oficial. Para atualizar, peça "atualiza as novidades do jogo".
 //
 // Fonte: https://store.steampowered.com/news/app/3678970
-// Última curadoria desta lista: 23/06/2026
+// Última curadoria desta lista: 25/06/2026
 
 export const GAME_UPDATE_SOURCE = 'https://store.steampowered.com/news/app/3678970'
-export const GAME_UPDATES_CURATED_AT = '23/06/2026'
+export const GAME_UPDATES_CURATED_AT = '25/06/2026'
 
 export const GAME_UPDATES = [
   {
+    date: '25/06/2026',
+    title: 'Mercado Steam reaberto + hotfix (v1.00.21)',
+    novo: true,
+    summary:
+      'O Mercado Steam do TBH reabriu! Regras de uso: 4 vagas de listagem, com cooldown de 8h por vaga — ao listar um item no Navio Comercial o cooldown já começa e a listagem não pode ser cancelada. Os 3 grades mais altos (Cosmic, Divine, Celestial) seguem temporariamente proibidos de listar — só Soulstones podem; serão liberados mais tarde. Pode haver fila de até 1h, e em algumas contas os botões de listar/vender demoram de 30 min a 2h pra ativar. A abertura chegou a ser adiada ~2h antes de ocorrer. O hotfix também corrigiu vários bugs: janela do Navio Comercial que não arrastava, faixa de nível na Síntese do Cubo, lista de correio sumindo ao atualizar, o efeito "Skill Level +1" que não somava no atributo, e Soulstones de grade abaixo da Moeda aparecendo na Oferta do Cubo, entre outros.',
+  },
+  {
+    date: '25/06/2026',
+    title: 'Punições a cheaters: 6.180 contas',
+    summary:
+      'A equipe revisou atividade de trapaça pelos dados do servidor e puniu 6.180 contas confirmadas — quem criou/obteve itens por métodos anormais ou usou programas não autorizados e exploits. Conforme o caso, foi aplicada restrição de acesso ao jogo ou restrição no Mercado Steam. Quem acredita ter sido punido injustamente pode recorrer por um formulário oficial.',
+  },
+  {
     date: '23/06/2026',
     title: 'Cronograma do Mercado Steam + Hotfix (v1.00.20)',
-    novo: true,
     summary:
       'Anunciado o cronograma de abertura do Mercado Steam: 25/06/2026 (qui), às 04h00 (horário de Brasília). No início, os 3 grades mais altos (Cosmic, Divine e Celestial) ficam temporariamente proibidos de serem listados — só as Soulstones podem. Os grades restritos serão liberados depois, conforme a estabilidade do Mercado. Também aplicado um hotfix corrigindo uma falha de segurança.',
   },
