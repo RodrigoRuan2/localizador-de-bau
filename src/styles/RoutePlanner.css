@@ -1,4 +1,6 @@
-/* Planejador de rota: seção recolhível para montar a rotação de farm. */
+/* Planejador de rota: uma CAIXA (section) que contém um construtor recolhível
+   (details) e os cronômetros criados logo abaixo — todos DENTRO da mesma caixa,
+   em vez de soltos embaixo dela. */
 
 .route-planner {
   margin-top: 16px;
@@ -39,6 +41,19 @@
   margin-top: 18px;
   padding-top: 6px;
   border-top: 1px solid var(--cor-borda);
+}
+
+/* Cronômetros criados — ficam DENTRO da caixa, sempre visíveis (mesmo com o
+   construtor recolhido), separados por uma linha. */
+.route-planner__timers {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--cor-borda);
+}
+
+/* A grade já não precisa da margem de topo que usava quando ficava solta. */
+.route-planner__timers .app__grid {
+  margin-top: 0;
 }
 
 /* Aviso "nenhum baú ainda", logo abaixo do Adicionar baú */

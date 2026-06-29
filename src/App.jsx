@@ -258,34 +258,35 @@ function App() {
             )}
           </>
         }
+        timersGrid={
+          timers.length > 0 ? (
+            <div className="app__grid">
+              {timers.map((timer) => (
+                <ChestCard
+                  key={timer.id}
+                  timer={timer}
+                  isNext={timer.id === nextId}
+                  isDragging={timer.id === dragId}
+                  average={averageDropInterval(dropHistory[timer.chestLevel])}
+                  onSetCustom={handleSetCustom}
+                  now={now}
+                  soundOn={settings.soundOn}
+                  volume={settings.volume}
+                  onDrop={handleDrop}
+                  onReset={handleReset}
+                  onRemove={handleRemove}
+                  onChangeStage={handleChangeStage}
+                  onDragStart={setDragId}
+                  onDragEnd={() => setDragId(null)}
+                  onDropCard={handleDropCard}
+                />
+              ))}
+            </div>
+          ) : null
+        }
       >
         <SettingsBar settings={settings} onChange={setSettings} onResetAll={handleResetAll} />
       </RoutePlanner>
-
-      {timers.length > 0 && (
-        <main className="app__grid">
-          {timers.map((timer) => (
-            <ChestCard
-              key={timer.id}
-              timer={timer}
-              isNext={timer.id === nextId}
-              isDragging={timer.id === dragId}
-              average={averageDropInterval(dropHistory[timer.chestLevel])}
-              onSetCustom={handleSetCustom}
-              now={now}
-              soundOn={settings.soundOn}
-              volume={settings.volume}
-              onDrop={handleDrop}
-              onReset={handleReset}
-              onRemove={handleRemove}
-              onChangeStage={handleChangeStage}
-              onDragStart={setDragId}
-              onDragEnd={() => setDragId(null)}
-              onDropCard={handleDropCard}
-            />
-          ))}
-        </main>
-      )}
 
       <StageGuide />
       <Meta />

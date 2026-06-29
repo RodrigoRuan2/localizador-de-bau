@@ -12,7 +12,20 @@ import '../styles/RoutePlanner.css'
 // mais fracos (clear mais rápido). O jogo não expõe o tempo de clear, então
 // usamos o nível dos inimigos como proxy de velocidade — honestidade > número
 // inventado.
-function RoutePlanner({ dropHistory, defaultMin, heroLevel, onCreateRoute, children, footer }) {
+//
+// A CAIXA é uma <section> que contém duas partes: (1) um <details> recolhível
+// com o construtor de rota + configurações + "adicionar baú"; e (2) os
+// cronômetros criados (timersGrid), que ficam SEMPRE visíveis DENTRO da mesma
+// caixa — em vez de soltos embaixo dela.
+function RoutePlanner({
+  dropHistory,
+  defaultMin,
+  heroLevel,
+  onCreateRoute,
+  children,
+  footer,
+  timersGrid,
+}) {
   const [selected, setSelected] = useState([])
 
   // Nível do herói como número (0 = não informado, então não filtramos nada).
@@ -60,103 +73,109 @@ function RoutePlanner({ dropHistory, defaultMin, heroLevel, onCreateRoute, child
     .sort((a, b) => a.best.enemy_level - b.best.enemy_level)
 
   return (
-    <details className="route-planner">
-      <summary className="route-planner__summary">
-        <img className="route-planner__summary-icon" src={iconRota} alt="" /> Planejador de rota
-      </summary>
+    <section className="route-planner">
+      <details className="route-planner__builder">
+        <summary className="route-planner__summary">
+          <img className="route-planner__summary-icon" src={iconRota} alt="" /> Planejador de rota
+        </summary>
 
-      {/* Configurações globais (duração, nível do herói, som, tema...). Vêm do
-          App como children: ele continua dono dos dados; o planejador só as
-          "abriga" no topo, já que nível do herói e duração alimentam a rota. */}
-      {children && <div className="route-planner__settings">{children}</div>}
+        {/* Configurações globais (duração, nível do herói, som, tema...). Vêm do
+            App como children: ele continua dono dos dados; o planejador só as
+            "abriga" no topo, já que nível do herói e duração alimentam a rota. */}
+        {children && <div className="route-planner__settings">{children}</div>}
 
-      <p className="route-planner__hint">
-        Escolha os níveis de baú que quer farmar. O app sugere a melhor fase de cada um (maior
-        chance de drop e clear mais rápido) e monta a rotação.
-        {hl > 0
-          ? ` Considerando o herói Lv ${hl} e a "regra dos 2-3 hits" do meta: o ideal é farmar onde você mata os inimigos em 2-3 golpes (clear rápido + gear relevante). Cada fase mostra o ritmo estimado de clear.`
-          : ' Dica: preencha o "Nível do herói" acima para o app estimar o ritmo de clear (regra dos 2-3 hits do meta).'}
-      </p>
+        <p className="route-planner__hint">
+          Escolha os níveis de baú que quer farmar. O app sugere a melhor fase de cada um (maior
+          chance de drop e clear mais rápido) e monta a rotação.
+          {hl > 0
+            ? ` Considerando o herói Lv ${hl} e a "regra dos 2-3 hits" do meta: o ideal é farmar onde você mata os inimigos em 2-3 golpes (clear rápido + gear relevante). Cada fase mostra o ritmo estimado de clear.`
+            : ' Dica: preencha o "Nível do herói" acima para o app estimar o ritmo de clear (regra dos 2-3 hits do meta).'}
+        </p>
 
-      <div className="route-planner__levels">
-        {CHEST_LEVELS.map((lv) => (
-          <button
-            key={lv}
-            type="button"
-            className={
-              selected.includes(lv)
-                ? 'route-planner__chip route-planner__chip--on'
-                : 'route-planner__chip'
-            }
-            onClick={() => toggle(lv)}
-            aria-pressed={selected.includes(lv)}
-          >
-            Lv {lv}
-          </button>
-        ))}
-      </div>
+        <div className="route-planner__levels">
+          {CHEST_LEVELS.map((lv) => (
+            <button
+              key={lv}
+              type="button"
+              className={
+                selected.includes(lv)
+                  ? 'route-planner__chip route-planner__chip--on'
+                  : 'route-planner__chip'
+              }
+              onClick={() => toggle(lv)}
+              aria-pressed={selected.includes(lv)}
+            >
+              Lv {lv}
+            </button>
+          ))}
+        </div>
 
-      {route.length > 0 && (
-        <>
-          <ol className="route-planner__route">
-            {route.map((item, index) => (
-              <li key={item.level} className="route-planner__step">
-                <span className="route-planner__order">{index + 1}</span>
-                <div className="route-planner__step-body">
-                  <strong>Baú Lv {item.level}</strong> → {stageName(item.best)}
-                  <span className="route-planner__meta">
-                    {difficultyName(item.best)} A{item.best.act}-{item.best.stage} · drop{' '}
-                    {item.best.boss_chest_drop_percent}% · inimigos Lv {item.best.enemy_level}
-                  </span>
-                  {item.avg && (
-                    <span className="route-planner__avg">
-                      ⏱ seu cooldown real: ~{formatDuration(item.avg.avgMs)} ({item.avg.samples}{' '}
-                      {item.avg.samples === 1 ? 'intervalo' : 'intervalos'})
+        {route.length > 0 && (
+          <>
+            <ol className="route-planner__route">
+              {route.map((item, index) => (
+                <li key={item.level} className="route-planner__step">
+                  <span className="route-planner__order">{index + 1}</span>
+                  <div className="route-planner__step-body">
+                    <strong>Baú Lv {item.level}</strong> → {stageName(item.best)}
+                    <span className="route-planner__meta">
+                      {difficultyName(item.best)} A{item.best.act}-{item.best.stage} · drop{' '}
+                      {item.best.boss_chest_drop_percent}% · inimigos Lv {item.best.enemy_level}
                     </span>
-                  )}
-                  {item.fastest.enemy_level < item.best.enemy_level &&
-                    item.fastest.boss_chest_drop_percent >= 40 && (
-                      <span className="route-planner__alt">
-                        ⚡ clear mais rápido: {stageName(item.fastest)} (inimigos Lv{' '}
-                        {item.fastest.enemy_level}, drop {item.fastest.boss_chest_drop_percent}%)
+                    {item.avg && (
+                      <span className="route-planner__avg">
+                        ⏱ seu cooldown real: ~{formatDuration(item.avg.avgMs)} ({item.avg.samples}{' '}
+                        {item.avg.samples === 1 ? 'intervalo' : 'intervalos'})
                       </span>
                     )}
-                  {item.tooHard && (
-                    <span className="route-planner__warn">
-                      ⚠ Seu herói (Lv {hl}) ainda não clareia esta fase (inimigos Lv{' '}
-                      {item.best.enemy_level}) — suba de nível antes.
-                    </span>
-                  )}
-                  {item.ritmo && (
-                    <span className={`route-planner__ritmo route-planner__ritmo--${item.ritmo.tipo}`}>
-                      🎯 {item.ritmo.texto}
-                    </span>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ol>
+                    {item.fastest.enemy_level < item.best.enemy_level &&
+                      item.fastest.boss_chest_drop_percent >= 40 && (
+                        <span className="route-planner__alt">
+                          ⚡ clear mais rápido: {stageName(item.fastest)} (inimigos Lv{' '}
+                          {item.fastest.enemy_level}, drop {item.fastest.boss_chest_drop_percent}%)
+                        </span>
+                      )}
+                    {item.tooHard && (
+                      <span className="route-planner__warn">
+                        ⚠ Seu herói (Lv {hl}) ainda não clareia esta fase (inimigos Lv{' '}
+                        {item.best.enemy_level}) — suba de nível antes.
+                      </span>
+                    )}
+                    {item.ritmo && (
+                      <span className={`route-planner__ritmo route-planner__ritmo--${item.ritmo.tipo}`}>
+                        🎯 {item.ritmo.texto}
+                      </span>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ol>
 
-          <p className="route-planner__coverage">
-            {route.length === 1
-              ? `Com só 1 baú você fica ~${defaultMin} min parado esperando o cooldown. Adicione mais níveis para não ficar ocioso.`
-              : `Rotacione entre as ${route.length} fases na ordem acima: ao dropar um baú, pule para a próxima fase enquanto o cooldown (~${defaultMin} min) corre. Quanto mais baús na rota, menos tempo parado.`}
-          </p>
+            <p className="route-planner__coverage">
+              {route.length === 1
+                ? `Com só 1 baú você fica ~${defaultMin} min parado esperando o cooldown. Adicione mais níveis para não ficar ocioso.`
+                : `Rotacione entre as ${route.length} fases na ordem acima: ao dropar um baú, pule para a próxima fase enquanto o cooldown (~${defaultMin} min) corre. Quanto mais baús na rota, menos tempo parado.`}
+            </p>
 
-          <button
-            type="button"
-            className="route-planner__create"
-            onClick={() => onCreateRoute(route.map((item) => ({ level: item.level, stage: item.best })))}
-          >
-            ➕ Criar cronômetros desta rota
-          </button>
-        </>
-      )}
+            <button
+              type="button"
+              className="route-planner__create"
+              onClick={() => onCreateRoute(route.map((item) => ({ level: item.level, stage: item.best })))}
+            >
+              ➕ Criar cronômetros desta rota
+            </button>
+          </>
+        )}
 
-      {/* Slot do rodapé: o App injeta aqui o "Adicionar baú" (criar timer
-          manualmente). O planejador não sabe o que é — só posiciona. */}
-      {footer && <div className="route-planner__footer">{footer}</div>}
-    </details>
+        {/* Slot do rodapé: o App injeta aqui o "Adicionar baú" (criar timer
+            manualmente). O planejador não sabe o que é — só posiciona. */}
+        {footer && <div className="route-planner__footer">{footer}</div>}
+      </details>
+
+      {/* Os cronômetros criados ficam DENTRO da caixa do planejador, sempre
+          visíveis — não soltos embaixo dela. O App injeta a grade pronta. */}
+      {timersGrid && <div className="route-planner__timers">{timersGrid}</div>}
+    </section>
   )
 }
 
