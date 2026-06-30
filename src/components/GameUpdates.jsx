@@ -29,7 +29,14 @@ function GameUpdates() {
               <strong className="game-updates__title">{u.title}</strong>
               {u.novo && <span className="game-updates__badge">novo</span>}
             </div>
-            <p className="game-updates__summary-text">{u.summary}</p>
+            {u.intro && <p className="game-updates__intro">{u.intro}</p>}
+            {u.items && (
+              <ul className="game-updates__items">
+                {u.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
       </ol>

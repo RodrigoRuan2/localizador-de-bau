@@ -72,8 +72,33 @@
   padding: 2px 8px;
 }
 
-.game-updates__summary-text {
+/* Parágrafo de contexto da entrada */
+.game-updates__intro {
   margin: 0;
   font-size: 0.9rem;
   color: var(--cor-texto-suave);
+}
+
+/* Lista de tópicos (correções), no mesmo espírito das notas oficiais */
+.game-updates__items {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.9rem;
+  color: var(--cor-texto-suave);
+}
+
+.game-updates__items li {
+  /* Marcador na cor de destaque do tema, sem precisar de imagem */
+  list-style: none;
+  position: relative;
+}
+
+.game-updates__items li::before {
+  content: '▸';
+  position: absolute;
+  left: -16px;
+  color: var(--cor-destaque);
 }
